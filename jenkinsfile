@@ -26,20 +26,20 @@ environment {
                  echo "----------- unit test Complted ----------"
             }
         }
-        //  stage('SONAR_TOKEN') {
-        //     steps {
-        //         script {
-        //             // Run SonarQube analysis
-        //             sh """
-        //             mvn sonar:sonar \
-        //             -Dsonar.projectKey=Chandanasai1712_cicd-taxiapp \
-        //             -Dsonar.organization=taxiapp \
-        //             -Dsonar.host.url=https://sonarcloud.io \
-        //             -Dsonar.token=${SONAR_TOKEN}
-        //             """
-        //         }
-        //     }
-        // }
+         stage('SONAR_TOKEN') {
+             steps {
+                script {
+                    // Run SonarQube analysis
+                    sh """
+                    mvn sonar:sonar \
+                    -Dsonar.projectKey=sukeerthreddy12_taxi-app \
+                    -Dsonar.organization=sukeerthreddy12 \
+                    -Dsonar.host.url=https://sonarcloud.io \
+                    -Dsonar.token=${SONAR_TOKEN}
+                    """
+                }
+            }
+        }
         stage("Jar Publish") {
         steps {
             script {
